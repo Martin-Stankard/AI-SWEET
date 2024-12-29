@@ -18,16 +18,32 @@ services:
       - "8081:8000"
     restart: always
 
-  open-webui-ollama:
+  # open-webui:
+  #     build:
+  #       context: ./services/open-webui
+  #       dockerfile: Dockerfile
+  #     ports:
+  #       - "8080:8080"
+  #     restart: always
+  #     volumes:
+  #     - open-webui:/app/backend/data # Map the 'open-webui' volume to /app/backend/data in the container
+
+  ollama:
       build:
-        context: ./services/open-webui-ollama
+        context: ./services/ollama
         dockerfile: Dockerfile
       ports:
-        - "8080:8080"
-      restart: always
+        - "11434:11434"
       volumes:
       - ollama:/root/.ollama # Map the 'ollama' volume to /root/.ollama in the container
-      - open-webui:/app/backend/data # Map the 'open-webui' volume to /app/backend/data in the container
+      deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [compute, utility] # Enable GPU support
+      restart: always # Automatically restart the container on failure
+      
 
   qdrant:
     build:
