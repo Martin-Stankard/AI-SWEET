@@ -17,3 +17,15 @@ services:
     ports:
       - "8081:8000"
     restart: always
+
+  chromadb:
+    build:
+      context: ./services/chromadb
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb-data:/chromadb/data
+    restart: always
+volumes:
+  chromadb-data:
