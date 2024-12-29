@@ -1,4 +1,4 @@
-FROM qdrant/qdrant:latest
+FROM qdrant/qdrant
 
 # Optional: You can add customizations here if necessary, such as copying configuration files, etc.
 # COPY ./config/qdrant-config.toml /qdrant/config/
@@ -7,4 +7,4 @@ FROM qdrant/qdrant:latest
 EXPOSE 6333
 
 # Default command (in this case, it's just the default entrypoint)
-CMD ["qdrant"]
+#CMD ["qdrant"]
