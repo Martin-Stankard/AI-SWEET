@@ -5,7 +5,7 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Copy package.json and install dependencies (if any)
-COPY package*.json ./
+COPY src/node/package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
