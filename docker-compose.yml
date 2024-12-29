@@ -3,6 +3,8 @@ version: '3.8'
 services:
   node-app:
     build: .
+    context: ./services/node-app
+    dockerfile: Dockerfile
     volumes:
       # Mount the src directory so you can edit files on the host machine
       - ./src:/usr/src/app/src
