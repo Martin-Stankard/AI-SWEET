@@ -12,4 +12,4 @@ RUN mkdir -p /root/.ollama /app/backend/data
 EXPOSE 8080
 
 # Set the default command to start the application
-CMD ["start"]  # Replace "start" with the actual start command if needed
+#CMD ["start"]  # Replace "start" with the actual start command if needed

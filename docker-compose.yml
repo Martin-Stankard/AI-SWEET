@@ -25,6 +25,9 @@ services:
       ports:
         - "8080:8080"
       restart: always
+      volumes:
+      - ollama:/root/.ollama # Map the 'ollama' volume to /root/.ollama in the container
+      - open-webui:/app/backend/data # Map the 'open-webui' volume to /app/backend/data in the container
 
   qdrant:
     build:
@@ -40,4 +43,8 @@ services:
 networks:
   demo:
     driver: bridge
+
+volumes:
+  ollama: # Define the 'ollama' named volume
+  open-webui: # Define the 'open-webui' named volume
   
