@@ -9,7 +9,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 RUN mkdir -p /root/.ollama /app/backend/data
 
 # Expose the necessary port
-EXPOSE 8079
+EXPOSE 8080
 
 # Set the default command to start the application
-#CMD ["start"]  # Replace "start" with the actual start command if needed
+CMD ["start"]  # Replace "start" with the actual start command if needed

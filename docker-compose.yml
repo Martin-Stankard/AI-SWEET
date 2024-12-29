@@ -5,7 +5,7 @@ services:
       context: ./services/nginx
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8082:80"
     volumes:
       - ./services/nginx:/usr/share/nginx/html
     restart: always
@@ -23,7 +23,7 @@ services:
         context: ./services/open-webui-ollama
         dockerfile: Dockerfile
       ports:
-        - "8079:8079"
+        - "8080:8080"
       restart: always
 
   qdrant:
