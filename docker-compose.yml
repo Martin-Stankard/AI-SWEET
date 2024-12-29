@@ -18,9 +18,9 @@ services:
       - "8081:8000"
     restart: always
 
-  open-web-ui-ollama:
+  open-webui-ollama:
       build:
-        context: ./services/open-web-ui-ollama
+        context: ./services/open-webui-ollama
         dockerfile: Dockerfile
       ports:
         - "8079:8079"
