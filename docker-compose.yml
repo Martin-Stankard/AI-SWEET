@@ -1,11 +1,19 @@
 version: '3.8'
-
 services:
-  node-app:
-    build: .
-     
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
     volumes:
-      # Mount the src directory so you can edit files on the host machine
-      - ./src:/usr/src/app/src
-    working_dir: /usr/src/app
-    command: node src/node/helloWorld.js
+      - ./services/nginx:/usr/share/nginx/html
+    restart: always
+
+  alpine-http:
+    build:
+      context: ./services/alpine-http
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8000"
+    restart: always
