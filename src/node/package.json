@@ -1,11 +1,13 @@
 {
-    "name": "node-docker-app",
+    "name": "hello-world-node",
     "version": "1.0.0",
-    "description": "A simple Node.js app with Docker Compose",
-    "main": "src/node/tester.js",
+    "description": "A simple Node.js Hello World application",
+    "main": "src/node/helloWorld.js",
     "scripts": {
-      "start": "node src/node/tester.js"
+      "start": "node src/node/helloWorld.js"
     },
-    "dependencies": {}
+    "keywords": [],
+    "author": "Your Name",
+    "license": "MIT"
   }
   
