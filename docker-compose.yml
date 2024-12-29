@@ -18,6 +18,14 @@ services:
       - "8081:8000"
     restart: always
 
+  open-web-ui-ollama:
+      build:
+        context: ./services/open-web-ui-ollama
+        dockerfile: Dockerfile
+      ports:
+        - "8079:8079"
+      restart: always
+
   qdrant:
     build:
       context: ./services/qdrant
