@@ -4,14 +4,16 @@ services:
   node-app:
     build: .
     volumes:
-      # Mount the source code to the container to reflect changes
-      - ./src/node:/usr/src/app/src/node
-      # Mount the output directory to ensure persistent output
+      # Mount the source code to reflect changes
+      - ./src:/usr/src/app/src
+      # Mount the output directory for persistent output
       - ./stuff/output:/usr/src/app/stuff/output
+      # Optionally, ignore `node_modules` to avoid conflicts
+      - /usr/src/app/node_modules
     working_dir: /usr/src/app
     environment:
       - NODE_ENV=development
-    # Rebuild container if tester.js file changes
-    watch:
-      - ./src/node/tester.js
-    command: npm start
+    ports:
+      # Expose application ports
+      - "3000:3000"
+    command: nodemon --legacy-watch src/node/tester.js

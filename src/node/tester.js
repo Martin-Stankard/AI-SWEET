@@ -5,6 +5,6 @@ const path = require('path');
 const outputPath = path.join(__dirname, '../../stuff/output/testerOutput.txt');
 
 // Write to the file
-fs.writeFileSync(outputPath, 'This is the output from tester.js\n');
+fs.writeFileSync(outputPath, 'This is the output from tester 001.js\n');
 
 console.log('Output written to', outputPath);
