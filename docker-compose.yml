@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    volumes:
+      # Mount the source code to the container to reflect changes
+      - ./src/node:/usr/src/app/src/node
+      # Mount the output directory to ensure persistent output
+      - ./stuff/output:/usr/src/app/stuff/output
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=development
+    # Rebuild container if tester.js file changes
+    watch:
+      - ./src/node/tester.js
+    command: npm start
