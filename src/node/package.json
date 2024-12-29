@@ -1,0 +1,11 @@
+{
+    "name": "node-docker-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js app with Docker Compose",
+    "main": "src/node/tester.js",
+    "scripts": {
+      "start": "node src/node/tester.js"
+    },
+    "dependencies": {}
+  }
+  
