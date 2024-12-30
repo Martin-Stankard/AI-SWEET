@@ -8,4 +8,4 @@ RUN mkdir -p /root/.ollama
 EXPOSE 11434
 
 # Set the default command if needed (usually already defined in the base image)
-#CMD ["start"]  # Replace "start" with the actual start command if necessary
+CMD ["sh", "-c", "ollama pull nomic-embed-text && ollama pull llama3.2 && ollama run llama3.2"]
