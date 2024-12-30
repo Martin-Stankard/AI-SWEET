@@ -40,7 +40,7 @@ services:
       - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
     restart: unless-stopped 
     command:
-      - "ollama pull llama3.2"
+      - "ollama run llama3.2"
     
 
   qdrant:
