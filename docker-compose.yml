@@ -40,7 +40,6 @@ services:
       - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
     restart: unless-stopped 
     command:
-      - "-c"
       - "sleep 3; OLLAMA_HOST=ollama:11434 ollama pull llama3.2; OLLAMA_HOST=ollama:11434 ollama pull nomic-embed-text"
     
 
