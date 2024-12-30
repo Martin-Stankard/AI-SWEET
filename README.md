@@ -10,16 +10,12 @@ Works:
 - (seconds) ollama @ http://localhost:11434/
 - (3min) open web ui @ localhost:3000 
 
-So far so good. TODO, clean all docker bits except images...time test. test101 
-- 30 sec to open webui banner...may need kick at localhost3000...
-- 2 min then checked links, aok except 3000.
-- seems live at "INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)"
-
-test 102
-- delete all artifacts except images.
-- docker compose build   : time: almost instant
-- docker compose up    : time: a minute or two to open-webui after webui banner| INFO:     connection open
-- time to pass all endpoint tests: about 2 minutes to build everything...mostly waiting for open web ui.
-
 Then a nuke repull time test. test 103.
 - pulled and go test103
+- good test...same wait for webui to start AND....it is NOT finding my local ollama llama3.2 model
+
+TODO (after hike) 
+- ...unistall local ollama and all models :( 
+- goog "ollama docker persist local model download"
+- redo nuke test104
+- Then focus on ollama-docker gpu biz
