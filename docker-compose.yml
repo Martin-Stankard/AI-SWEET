@@ -57,6 +57,5 @@ networks:
     driver: bridge
 
 volumes:
-  ollama: # Define the 'ollama' named volume
   open-webui: # Define the 'open-webui' named volume
   
