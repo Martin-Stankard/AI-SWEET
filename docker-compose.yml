@@ -36,12 +36,6 @@ services:
         - "11434:11434"
       volumes:
       - ollama:/root/.ollama # Map the 'ollama' volume to /root/.ollama in the container
-      deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [compute, utility] # Enable GPU support
       restart: always # Automatically restart the container on failure
       
 
