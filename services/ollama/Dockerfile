@@ -8,4 +8,4 @@ RUN mkdir -p /root/.ollama
 EXPOSE 11434
 
 # Set the default command if needed (usually already defined in the base image)
-CMD ["ollama" "pull" "nomic-embed-text"]
+#CMD ["ollama" "pull" "nomic-embed-text"]
