@@ -22,3 +22,4 @@ test 102
 - time to pass all endpoint tests: about 2 minutes to build everything...mostly waiting for open web ui.
 
 Then a nuke repull time test. test 103.
+- pulled and go test103
