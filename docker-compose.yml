@@ -37,15 +37,6 @@ services:
     networks:
       - ollama-docker
 
-  qdrant:
-    image: qdrant/qdrant
-    container_name: qdrant
-    networks:
-      - ollama-docker
-    restart: unless-stopped
-    ports:
-      - "6333:6333"
-
 networks:
   ollama-docker:
     external: false
