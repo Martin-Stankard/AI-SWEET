@@ -2,6 +2,7 @@ version: '3.8'
 services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
     volumes:
       - ../openWebUILocalVolume:/app/backend/data
     depends_on:
@@ -23,6 +24,7 @@ services:
 
   ollama:
     image: ollama/ollama:latest
+    container_name: ollama
     ports:
       - 7869:11434
     volumes:
@@ -37,9 +39,7 @@ services:
       - ollama-docker
 
   qdrant:
-    build:
-      context: ./services/qdrant
-      dockerfile: Dockerfile
+    image: qdrant/qdrant
     container_name: qdrant
     networks:
       - ollama-docker
