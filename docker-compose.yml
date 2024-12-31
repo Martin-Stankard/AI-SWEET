@@ -1,28 +1,9 @@
 version: '3.8'
 services:
-  nginx:
-    build:
-      context: ./services/nginx
-      dockerfile: Dockerfile
-    ports:
-      - "8082:80"
-    volumes:
-      - ./services/nginx:/usr/share/nginx/html
-    restart: unless-stopped
-
-  alpine-http:
-    build:
-      context: ./services/alpine-http
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8000"
-    restart: unless-stopped
-
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
-    container_name: open-webui
     volumes:
-      - ../ollama/ollama-webui:/app/backend/data
+      - ../openWebUILocalVolume:/app/backend/data
     depends_on:
       - ollama
     ports:
@@ -31,9 +12,9 @@ services:
       - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
       - ENV=dev
       - WEBUI_AUTH=False
-      - WEBUI_NAME=valiantlynx AI
+      - WEBUI_NAME=baby
       - WEBUI_URL=http://localhost:8080
-      - WEBUI_SECRET_KEY=t0p-s3cr3t
+      - WEBUI_SECRET_KEY=123456
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
@@ -41,11 +22,9 @@ services:
       - ollama-docker   
 
   ollama:
-    build:
-      context: ./services/ollama
-      dockerfile: Dockerfile
+    image: ollama/ollama:latest
     ports:
-      - "11434:11434"
+      - 7869:11434
     volumes:
       - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
     restart: unless-stopped
