@@ -47,7 +47,7 @@ services:
     image: ghcr.io/open-webui/pipelines:main
     container_name: pipelines
     volumes:
-      - pipelines:/app/pipelines
+      - ../pipelinesLocalVolume:/app/pipelines
     ports:
       - 9099:9099
     extra_hosts:
@@ -59,6 +59,3 @@ services:
 networks:
   ollama-docker:
     external: false
-
-volumes:
-  pipelines:
