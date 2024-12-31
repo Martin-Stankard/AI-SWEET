@@ -1,4 +1,4 @@
-## AI-SWEET: A Docker Compose Setup for Local Development
+## AI-SWEET: An Ollama + OpenWebui Docker Compose for Windows + NVIDIA 
 ===============
 
 ### Overview
