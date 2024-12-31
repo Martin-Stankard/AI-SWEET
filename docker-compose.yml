@@ -33,11 +33,17 @@ services:
     restart: always
     environment:
       - OLLAMA_KEEP_ALIVE=24h
-      - OLLAMA_HOST=0.0.0.0
     networks:
       - ollama-docker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
 
 networks:
   ollama-docker:
     external: false
-
