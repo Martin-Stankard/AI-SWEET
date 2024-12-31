@@ -8,3 +8,4 @@ Works:
 
 TODO  
 - focus on ollama-docker gpu biz
+-- no small task on windows to install nvidia container toolkit on windows
