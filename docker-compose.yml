@@ -19,16 +19,26 @@ services:
     restart: unless-stopped
 
   open-webui:
-    build:
-      context: ./services/open-webui
+    image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
-    ports:
-      - "3000:8080"
     volumes:
-      - open-webui:/app/backend/data
+      - ../ollama/ollama-webui:/app/backend/data
+    depends_on:
+      - ollama
+    ports:
+      - 8080:8080
+    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
+      - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
+      - ENV=dev
+      - WEBUI_AUTH=False
+      - WEBUI_NAME=valiantlynx AI
+      - WEBUI_URL=http://localhost:8080
+      - WEBUI_SECRET_KEY=t0p-s3cr3t
     extra_hosts:
-      - "host.docker.internal:host-gateway"
-    restart: unless-stopped      
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+    networks:
+      - ollama-docker   
 
   ollama:
     build:
@@ -38,10 +48,7 @@ services:
       - "11434:11434"
     volumes:
       - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
-    restart: unless-stopped 
-    command:
-      - "ollama run llama3.2"
-    
+    restart: unless-stopped
 
   qdrant:
     build:
@@ -55,9 +62,6 @@ services:
       - "6333:6333"
 
 networks:
-  demo:
-    driver: bridge
+  ollama-docker:
+    external: false
 
-volumes:
-  open-webui: # Define the 'open-webui' named volume
-  
