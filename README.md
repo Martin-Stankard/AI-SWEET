@@ -21,6 +21,4 @@ docker-compose up --build
 ### TODOs
 
 * Guarantee data integrity by preventing data from being moved from private directories to the container volumes.
-* Enable GPU acceleration for the `GPU feelz.` service.
-* Implement pipeline-based development and testing for the `Pipeline rag ability, local ../` service.
-* Investigate and document the purpose of the `Rag server?` service.
+* "maybe dump pipelines for now". rag vs knowledge upload is unknown. still a few runnable demo choices.
