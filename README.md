@@ -6,8 +6,5 @@ docker-compose up ( TODO, on change, as is, add --build)
 Works:
 -localhost:8080
 
-TODO tomorrow 
-- ...unistall local ollama and all models :( 
-- goog "ollama docker persist local model download"
-- redo nuke test104
-- Then focus on ollama-docker gpu biz
+TODO  
+- focus on ollama-docker gpu biz

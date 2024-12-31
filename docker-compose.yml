@@ -9,8 +9,8 @@ services:
       - ollama
     ports:
       - 8080:8080
-    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
-      - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
+    environment: # 
+      - OLLAMA_BASE_URLS=http://host.docker.internal:11434
       - ENV=dev
       - WEBUI_AUTH=False
       - WEBUI_NAME=baby
@@ -26,7 +26,7 @@ services:
     image: ollama/ollama:latest
     container_name: ollama
     ports:
-      - 7869:11434
+      - 11434:11434
     volumes:
       - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
     pull_policy: always
