@@ -7,7 +7,7 @@ AI-SWEET is a custom Docker Compose setup designed for local development and tes
 
 ### Prerequisites
 
-To use AI-SWEET, you'll need to create three adjacent folders: `../ollamaLocalVolume`, `../openWebUILocalVolume`, (TODO and `../text`).
+To use AI-SWEET, you'll need to create adjacent folders: `../ollamaLocalVolume`, `../openWebUILocalVolume`, (TODO and `../text` as rag target. raggify on new file maybe?) (Currently using an ephemeral named volume for pipelines, open webui is vast).
 
 ### Running AI-SWEET
 
