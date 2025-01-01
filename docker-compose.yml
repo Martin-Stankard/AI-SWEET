@@ -49,6 +49,7 @@ services:
     container_name: pipelines
     volumes:
       - pipelines:/app/pipelines
+      - ../openWebUILocalVolume:/app/backend/data
     pull_policy: always
     ports:
       - 9099:9099
