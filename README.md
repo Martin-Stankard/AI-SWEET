@@ -21,4 +21,6 @@ docker-compose up --build
 ### TODOs
 
 * Guarantee data integrity by preventing data from being moved from private directories to the container volumes.
-* back to debugging: https://github.com/open-webui/pipelines
+* back to debugging: https://github.com/open-webui/pipelines    
+* pipeline-webui connect verified, persisted settings in webui
+
