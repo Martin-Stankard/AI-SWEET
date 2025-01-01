@@ -41,6 +41,8 @@ class Pipeline:
 
         # official has self.valves = self.Valves(**{"pipelines": ["llama3:latest"]})
         self.valves = self.Valves(**{"pipelines": ["*"]})
+        
+        print(f"init:{__name__}")
 
         pass
 
@@ -58,12 +60,12 @@ class Pipeline:
         # This filter is applied to the form data BEFORE it is sent to the LLM API.
         print(f"inlet:{__name__}")
 
-        # If you'd like to check for title generation, you can add the following check
-        if body.get("title", False):
-            print("Title Generation Request, inlet")
+        # # If you'd like to check for title generation, you can add the following check
+        # if body.get("title", False):
+        #     print("Title Generation Request, inlet")
 
-        print(body)
-        print(user)
+        # print(body)
+        # print(user)
 
         return body
         
@@ -71,13 +73,13 @@ class Pipeline:
     	#This filter is applied to the form data AFTER it is sent to the LLM API.
         print(f"outlet:{__name__}")
         
-        # If you'd like to check for title generation, you can add the following check
-        if body.get("title", False):
-            print("Title Generation Request, outlet")
+        # # If you'd like to check for title generation, you can add the following check
+        # if body.get("title", False):
+        #     print("Title Generation Request, outlet")
 
-        print(body)
-        print(user)
+        # print(body)
+        # print(user)
         
-        #confirmed this belongs here.
+        # #confirmed this belongs here.
         return body
         
