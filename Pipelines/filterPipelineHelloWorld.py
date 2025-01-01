@@ -74,15 +74,16 @@ class Pipeline:
         print(body)
         
         
-        # duh...bad object handing. Off to hike.
-        # if there is a body.message and it is a list 
+        # if there is a body.messages and it is a list
+        if 'messages' in body and isinstance(body['messages'], list):
+            # foreach object, if there is a role == assistant
+            for obj in body['messages']:
+                if obj.get('role') == 'assistant':
+                    # for that object, if there is "content" and it is a string
+                    if 'content' in obj and isinstance(obj['content'], str):
+                        # concat "some hello world junk" to the end of that content.
+                        obj['content'] += " some hello world junk"
         
-        # foreach object, if there is a role == assistant
-        
-        # for that object, if there is "content" and it is a string
-        
-        # concat "some hello world junk" to the end of tht content.
-        
-        # #confirmed this belongs here.
+                        
         return body
         
