@@ -73,13 +73,15 @@ class Pipeline:
         print(f"outlet:{__name__}")
         print(body)
         
-        # TODO fails, likely due to async. I want to do something with that content here, just for understanding.
-        # temp = body["content"]
-        # body["content"] = temp + " - HelloWorldFiltered"
-        # print(body["content"])
-        # print(user)
         
+        # duh...bad object handing. Off to hike.
+        # if there is a body.message and it is a list 
         
+        # foreach object, if there is a role == assistant
+        
+        # for that object, if there is "content" and it is a string
+        
+        # concat "some hello world junk" to the end of tht content.
         
         # #confirmed this belongs here.
         return body
