@@ -71,16 +71,14 @@ class Pipeline:
     async def outlet(self, body: dict, user: Optional[dict] = None) -> dict:
     	#This filter is applied to the form data AFTER it is sent to the LLM API.
         print(f"outlet:{__name__}")
-        
-        # # If you'd like to check for title generation, you can add the following check
-        # if body.get("title", False):
-        #     print("Title Generation Request, outlet")
-
-        # print(body)
+        print(body["content"])
+        temp = body["content"]
+        body["content"] = temp + " - HelloWorldFiltered"
+        print(body["content"])
         # print(user)
         
-        #all of the other prints here go to the pipeline service console.
-        body.message = body.message + " - Hello World Filtered"
+        
+        
         # #confirmed this belongs here.
         return body
         
