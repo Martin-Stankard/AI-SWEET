@@ -44,6 +44,23 @@ services:
               count: 1
               capabilities: [gpu]
 
+  pipelines:
+    image: ghcr.io/open-webui/pipelines:latest
+    container_name: pipelines
+    volumes:
+      - pipelines:/app/pipelines
+    pull_policy: always
+    ports:
+      - 9099:9099
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: always
+    networks:
+      - ollama-docker
+
 networks:
   ollama-docker:
     external: false
+
+volumes:
+  pipelines:
