@@ -3,7 +3,7 @@ services:
     image: ghcr.io/open-webui/open-webui:latest
     container_name: open-webui
     volumes:
-      - ../openWebUILocalVolume:/app/backend/data
+      - open-webui:/app/backend/data
     pull_policy: always
     depends_on:
       - ollama
@@ -28,7 +28,7 @@ services:
     ports:
       - 11434:11434
     volumes:
-      - ../ollamaLocalVolume:/root/.ollama # Map '../ollamaLocalVolume' to /root/.ollama in the container
+      - ollama:/root/.ollama
     pull_policy: always
     tty: true
     restart: always
@@ -49,7 +49,6 @@ services:
     container_name: pipelines
     volumes:
       - pipelines:/app/pipelines
-      - ../openWebUILocalVolume:/app/backend/data
     pull_policy: always
     ports:
       - 9099:9099
@@ -65,3 +64,5 @@ networks:
 
 volumes:
   pipelines:
+  ollama:
+  open-webui:
