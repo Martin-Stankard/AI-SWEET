@@ -72,9 +72,11 @@ class Pipeline:
     	#This filter is applied to the form data AFTER it is sent to the LLM API.
         print(f"outlet:{__name__}")
         print(body["content"])
-        temp = body["content"]
-        body["content"] = temp + " - HelloWorldFiltered"
-        print(body["content"])
+        
+        # TODO fails, likely due to async. I want to do something with that content here, just for understanding.
+        # temp = body["content"]
+        # body["content"] = temp + " - HelloWorldFiltered"
+        # print(body["content"])
         # print(user)
         
         
