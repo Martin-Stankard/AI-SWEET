@@ -14,6 +14,11 @@ cd ./AI-SWEET
 docker-compose up --build
 ```
 
+This project contains hello world pipeline files and docker-runs the open-webui/pipelines. 
+To configure, (TODO, can I stick that into envs in the compose.yml?) and try the acompanying pipelines, I refer you here:
+https://github.com/open-webui/pipelines/tree/main
+
+
 ### TODOs
 * working on this https://zohaib.me/extending-openwebui-using-pipelines/ ....basic open webui pipeline hello world,
 * pydantic deep dive analyzing this https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY
