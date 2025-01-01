@@ -21,4 +21,3 @@ docker-compose up --build
 ### TODOs
 
 * Guarantee data integrity by preventing data from being moved from private directories to the container volumes.
-* "maybe dump pipelines for now". rag vs knowledge upload is unknown. still a few runnable demo choices.
