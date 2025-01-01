@@ -16,15 +16,13 @@ from schemas import OpenAIChatMessage
 class Pipeline:
     class Valves(BaseModel):
         # List target pipeline ids (models) that this filter will be connected to.
-        # If you want to connect this filter to all pipelines, you can set pipelines to ["*"]
+        
+        # If you want to connect this filter to all pipelines, you can set pipelines to ["*"] in next method
         pipelines: List[str] = []
-
-        # Assign a priority level to the filter pipeline.
-        # The priority level determines the order in which the filter pipelines are executed.
-        # The lower the number, the higher the priority.
-        priority: int = 0
+        priority: int = 0 #lower the better, neg???
 
         # Add your custom parameters/configuration here e.g. API_KEY that you want user to configure etc.
+        # this is all you see in the open web-ui>admin settings>pipelines AFTER you load this file as a pipeline.
         pass
 
     def __init__(self):
@@ -36,9 +34,10 @@ class Pipeline:
         # Best practice is to not specify the id so that it can be automatically inferred from the filename, so that users can install multiple versions of the same pipeline.
         # The identifier must be unique across all pipelines.
         # The identifier must be an alphanumeric string that can include underscores or hyphens. It cannot contain spaces, special characters, slashes, or backslashes.
-        # self.id = "filter_pipeline"
+        # self.id = "filter_pipeline" # YAY, big stupid descriptive file names instead of this id.
         self.name = "Filter"
 
+        # TODO, understand why pipelines is being set here, and priority is not...maybe unnecessary if the pipelines is set above
         # official has self.valves = self.Valves(**{"pipelines": ["llama3:latest"]})
         self.valves = self.Valves(**{"pipelines": ["*"]})
         
@@ -80,6 +79,8 @@ class Pipeline:
         # print(body)
         # print(user)
         
+        #all of the other prints here go to the pipeline service console.
+        body.message = body.message + " - Hello World Filtered"
         # #confirmed this belongs here.
         return body
         
