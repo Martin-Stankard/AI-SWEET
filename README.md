@@ -15,6 +15,8 @@ docker-compose up --build
 ```
 
 ### TODOs
-
+* working on this https://zohaib.me/extending-openwebui-using-pipelines/ ....basic open webui pipeline hello world,
+* pydantic deep dive analyzing this https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY
+* think about a scraper tool
 
 
