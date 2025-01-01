@@ -71,7 +71,7 @@ class Pipeline:
     async def outlet(self, body: dict, user: Optional[dict] = None) -> dict:
     	#This filter is applied to the form data AFTER it is sent to the LLM API.
         print(f"outlet:{__name__}")
-        print(body["content"])
+        print(body)
         
         # TODO fails, likely due to async. I want to do something with that content here, just for understanding.
         # temp = body["content"]
