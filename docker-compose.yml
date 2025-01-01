@@ -45,7 +45,7 @@ services:
               capabilities: [gpu]
 
   pipelines:
-    image: ghcr.io/open-webui/pipelines:latest
+    image: ghcr.io/open-webui/pipelines:main
     container_name: pipelines
     volumes:
       - pipelines:/app/pipelines
