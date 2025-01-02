@@ -15,9 +15,12 @@ docker-compose up --build
 ```
 
 This project contains hello world pipeline files and docker-runs the open-webui/pipelines. 
-To configure, (TODO, can I stick that into envs in the compose.yml?) and try the acompanying pipelines, I refer you here:
-https://github.com/open-webui/pipelines/tree/main
-
+To configure, (TODO, can I stick that into envs in the compose.yml?) 
+Navigate to the Settings > Connections > OpenAI API section in Open WebUI.
+Add new API URL to http://host.docker.internal:9099 and the API key to  ```python
+0p3n-w3bu!
+``` . Your pipelines should now be active.
+* ./Pipelines/filterPipelineHelloWorld
 
 ### TODOs
 * working on this https://zohaib.me/extending-openwebui-using-pipelines/ ....basic open webui pipeline hello world,

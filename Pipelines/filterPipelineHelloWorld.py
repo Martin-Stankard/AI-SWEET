@@ -19,7 +19,7 @@ class Pipeline:
         # If you want to connect this filter to all pipelines, you can set pipelines to ["*"] in next method
         pipelines: List[str] = []
         priority: int = 0 #lower the better, neg???
-        helloWorld: str = "Hello World"
+        
         # Add your custom parameters/configuration here e.g. API_KEY that you want user to configure etc.
         # this is all you see in the open web-ui>admin settings>pipelines AFTER you load this file as a pipeline.
         pass
@@ -81,7 +81,7 @@ class Pipeline:
                     # for that object, if there is "content" and it is a string
                     if 'content' in obj and isinstance(obj['content'], str):
                         # concat "some hello world junk" to the end of that content.
-                        obj['content'] += self.Valves.helloWorld
+                        obj['content'] += "Hello World"
         
                         
         return body
