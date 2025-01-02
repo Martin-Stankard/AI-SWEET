@@ -4,7 +4,7 @@ author: MPS
 date: 2025-01-01
 version: 1.1
 license: MIT
-description: Example of a filter pipeline that can be used to edit the form data before it is sent to the OpenAI API.
+description: Example of a filter pipeline that can be used to edit the form data before it is sent to the OpenAI API and back.
 requirements: requests
 """
 
@@ -15,12 +15,11 @@ from schemas import OpenAIChatMessage
 
 class Pipeline:
     class Valves(BaseModel):
-        # List target pipeline ids (models) that this filter will be connected to.
         
         # If you want to connect this filter to all pipelines, you can set pipelines to ["*"] in next method
         pipelines: List[str] = []
         priority: int = 0 #lower the better, neg???
-
+        helloWorld: str = "Hello World"
         # Add your custom parameters/configuration here e.g. API_KEY that you want user to configure etc.
         # this is all you see in the open web-ui>admin settings>pipelines AFTER you load this file as a pipeline.
         pass
@@ -71,10 +70,10 @@ class Pipeline:
     async def outlet(self, body: dict, user: Optional[dict] = None) -> dict:
     	#This filter is applied to the form data AFTER it is sent to the LLM API.
         print(f"outlet:{__name__}")
-        print(body)
+        #print(body)
         
         
-        # if there is a body.messages and it is a list
+        # if there is a body.messages and it is a list (TODO, make this sexier with OpenAIChatMessage)
         if 'messages' in body and isinstance(body['messages'], list):
             # foreach object, if there is a role == assistant
             for obj in body['messages']:
@@ -82,7 +81,7 @@ class Pipeline:
                     # for that object, if there is "content" and it is a string
                     if 'content' in obj and isinstance(obj['content'], str):
                         # concat "some hello world junk" to the end of that content.
-                        obj['content'] += " some hello world junk"
+                        obj['content'] += self.Valves.helloWorld
         
                         
         return body
