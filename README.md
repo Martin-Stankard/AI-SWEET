@@ -13,11 +13,11 @@ git clone https://github.com/Martin-Stankard/AI-SWEET.git
 cd ./AI-SWEET
 docker-compose up --build
 ```
-point your browser to http://localhost:8080
+Point your browser to `http://localhost:8080`.
 
 ### Pipelines
 
-This project contains hello world pipeline files and docker-runs the open-webui/pipelines. 
+This project contains a hello world filter pipeline and docker-runs the open-webui/pipelines project. 
 
 To configure:
 1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
@@ -29,13 +29,12 @@ Your pipelines should now be active.
 ### Add Google Search to Web-UI
 
 To add Google search functionality:
-1. Go to Admin Panel > Web Search.
-2. Start here: [Programmable Search Engine](https://programmablesearchengine.google.com/about/).
-3. Create a new search engine.
-4. Navigate to the Admin Panel > Settings > Web Search.
-5. Enable "Web Search Engine".
-6. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
-7. Save settings.
+1. Start here: [Programmable Search Engine](https://programmablesearchengine.google.com/about/).
+2. Create a new search engine.
+3. Navigate to the Admin Panel > Settings > Web Search.
+4. Enable "Web Search Engine".
+5. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
+6. Save settings.
 
 *IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
