@@ -1,3 +1,14 @@
+"""
+title: Manifold Pipeline Helloworld
+author: MPS
+date: 2025-01-05
+version: 1.1
+license: MIT
+description: Hello World use case tbd. As it is, this creates manifold 1 & 2 choices from the basic ui "select a model 
+drop down" and the assorted prints here can be seen in the pipelines container logs.
+
+"""
+
 from typing import List, Union, Generator, Iterator
 from schemas import OpenAIChatMessage
 
@@ -52,8 +63,8 @@ class Pipeline:
         if body.get("title", False):
             print("Title Generation Request")
 
-        print(messages)
-        print(user_message)
-        print(body)
+        #print(messages)
+        #print(user_message)
+        #print(body)
 
         return f"{model_id} response to: {user_message}"

@@ -1,3 +1,13 @@
+"""
+title: example_pipeline_scaffold
+author: MPS
+date: 2025-01-01
+version: 1.1
+license: MIT
+description: Example of a filter pipeline that can be used to edit the form data before it is sent to the OpenAI API and back.
+requirements: requests
+"""
+
 from typing import List, Union, Generator, Iterator
 from schemas import OpenAIChatMessage
 from pydantic import BaseModel
@@ -60,8 +70,8 @@ class Pipeline:
         if body.get("title", False):
             print("Title Generation Request")
 
-        print(messages)
-        print(user_message)
-        print(body)
+        #print(messages)
+        #print(user_message)
+        #print(body)
 
         return f"{__name__} response to: {user_message}"
