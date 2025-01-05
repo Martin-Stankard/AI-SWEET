@@ -13,18 +13,36 @@ git clone https://github.com/Martin-Stankard/AI-SWEET.git
 cd ./AI-SWEET
 docker-compose up --build
 ```
+point your browser to http://localhost:8080
+
+### Pipelines
 
 This project contains hello world pipeline files and docker-runs the open-webui/pipelines. 
-To configure, (TODO, can I stick that into envs in the compose.yml?) 
-Navigate to the Settings > Connections > OpenAI API section in Open WebUI.
-Add new API URL to http://host.docker.internal:9099 and the API key to  ```0p3n-w3bu!```  
-Your pipelines should now be active.
-* ./Pipelines/filterPipelineHelloWorld , good feedback in pipelines services log AND baseline OpenWebUI llm use.
 
+To configure:
+1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
+2. Add new API URL to `http://host.docker.internal:9099` and the API key to `0p3n-w3bu!`.
+
+Your pipelines should now be active.
+- `./Pipelines/filterPipelineHelloWorld`: Good feedback in pipelines services log AND baseline OpenWebUI llm use.
+
+### Add Google Search to Web-UI
+
+To add Google search functionality:
+1. Go to Admin Panel > Web Search.
+2. Start here: [Programmable Search Engine](https://programmablesearchengine.google.com/about/).
+3. Create a new search engine.
+4. Navigate to the Admin Panel > Settings > Web Search.
+5. Enable "Web Search Engine".
+6. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
+7. Save settings.
+
+*IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
 ### TODOs
-* working on this https://zohaib.me/extending-openwebui-using-pipelines/ ....basic open webui pipeline hello world,
-* pydantic deep dive analyzing this https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY...scrape this?
-* think about a scraper tool
+
+* Working on this: [Extending OpenWebUI using Pipelines](https://zohaib.me/extending-openwebui-using-pipelines/)
+* Pydantic deep dive analyzing this: [YouTube Video](https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY)
+* Think about a scraper tool
 
 
