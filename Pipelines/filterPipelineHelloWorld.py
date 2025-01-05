@@ -82,7 +82,8 @@ class Pipeline:
                     if 'content' in obj and isinstance(obj['content'], str):
                         # concat "some hello world junk" to the end of that content.
                         obj['content'] += "Hello World"
-        
+                        
+        #any message returned from Ollama to Open web-ui should be "filtered" to end in Hello World
                         
         return body
         
