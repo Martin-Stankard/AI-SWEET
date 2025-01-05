@@ -35,6 +35,7 @@ To add Google search functionality:
 4. Enable "Web Search Engine".
 5. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
 6. Save settings.
+7. These seem to expire
 
 *IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
