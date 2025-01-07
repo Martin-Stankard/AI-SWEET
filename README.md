@@ -18,12 +18,15 @@ Point your browser to `http://localhost:8080`.
 ### Pipelines
 
 ```docker compose --profile pipelines up```
+
 although, just to be safe:
+
 ```docker compose --profile pipelines up --build```
 
 This project contains a hello world filter pipeline and docker-runs the open-webui/pipelines project. 
 
 To configure:
+1. make sure the pipelines service is running via ```docker ps```
 1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
 2. Add new API URL to `http://host.docker.internal:9099` and the API key to `0p3n-w3bu!`.
 
@@ -49,5 +52,6 @@ To add Google search functionality:
 * Bringing Flowise here
 * Pydantic deep dive analyzing this: [YouTube Video](https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY)
 * Think about a scraper tool
+* Pie in the sky....test the --profile pipelines++ config "nightly". I am positive if I don't use it for a week, I will watch a 1 hour update and build process fail.
 
 
