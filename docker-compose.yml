@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:latest
@@ -57,6 +59,8 @@ services:
     restart: always
     networks:
       - ollama-docker
+    profiles:
+      - pipelines
 
 networks:
   ollama-docker:
