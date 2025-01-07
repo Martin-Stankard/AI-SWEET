@@ -41,7 +41,8 @@ To add Google search functionality:
 
 ### TODOs
 
-* Working on this: [Extending OpenWebUI using Pipelines](https://zohaib.me/extending-openwebui-using-pipelines/)
+* Need docker profile feature worked in, May never use pipelines
+* Bringing Flowise here
 * Pydantic deep dive analyzing this: [YouTube Video](https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY)
 * Think about a scraper tool
 
