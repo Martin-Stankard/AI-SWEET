@@ -33,6 +33,16 @@ To configure:
 Your pipelines should now be active.
 - `./Pipelines/filterPipelineHelloWorld`: Good feedback in pipelines services log AND baseline OpenWebUI llm use.
 
+### Flowise
+
+```docker compose --profile flowise up```
+
+although, just to be safe:
+
+```docker compose --profile flowise up --build```
+
+
+
 ### Add Google Search to Web-UI
 
 To add Google search functionality:
