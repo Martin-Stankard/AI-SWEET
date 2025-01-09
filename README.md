@@ -1,9 +1,9 @@
-## AI-SWEET: An Ollama + OpenWebui Docker Compose for Windows + NVIDIA 
+## AI-SWEET: An Ollama + Open Webui + profile-toggleable-goodies Docker Compose for Windows + NVIDIA 
 ===============
 
 ### Overview
 
-AI-SWEET is a custom Docker Compose setup designed for local development and testing. It provides a convenient way to run multiple services simultaneously, leveraging the power of Docker containers.
+AI-SWEET is a "Docker Compose up" minimal defauly setup designed for local development and testing. Because I forget long commands 
 
 ### Running AI-SWEET
 
@@ -11,7 +11,7 @@ To start the services, run the following command:
 ```bash
 git clone https://github.com/Martin-Stankard/AI-SWEET.git
 cd ./AI-SWEET
-docker-compose up --build
+docker-compose up
 ```
 Point your browser to `http://localhost:8080`.
 
@@ -19,40 +19,32 @@ Point your browser to `http://localhost:8080`.
 
 ```docker compose --profile pipelines up```
 
-although, just to be safe:
-
-```docker compose --profile pipelines up --build```
-
 This project contains a hello world filter pipeline and docker-runs the open-webui/pipelines project. 
 
 To configure:
 1. make sure the pipelines service is running via ```docker ps```
 1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
-2. Add new API URL to `http://host.docker.internal:9099` and the API key to `0p3n-w3bu!`.
+2. Add new API URL: `http://host.docker.internal:9099` and API key: `0p3n-w3bu!`.
 
 Your pipelines should now be active.
-- `./Pipelines/filterPipelineHelloWorld`: Good feedback in pipelines services log AND baseline OpenWebUI llm use.
+- `./Pipelines/filterPipelineHelloWorld.py`: Load into admin settings > pipelines. Good feedback in pipelines services log AND baseline OpenWebUI llm use. Powerful, dangerous stuff as it executes user input raw python code.
 
 ### Flowise
 
 ```docker compose --profile flowise up```
 
-although, just to be safe:
+Point your browser to `http://localhost:3000`. Open Webui is still available at Point your browser to `http://localhost:8080`.
 
-```docker compose --profile flowise up --build```
-
-
-
-### Add Google Search to Web-UI
+### Add Google Search via Open Web-UI settings
 
 To add Google search functionality:
-1. Start here: [Programmable Search Engine](https://programmablesearchengine.google.com/about/).
-2. Create a new search engine.
-3. Navigate to the Admin Panel > Settings > Web Search.
-4. Enable "Web Search Engine".
+1. Start here: [Google Programmable Search Engine](https://programmablesearchengine.google.com/about/)
+2. Create a new search engine
+3. Navigate to the Open-Webui Admin Panel > Settings > Web Search
+4. Enable "Web Search Engine"
 5. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
-6. Save settings.
-7. These seem to expire.
+6. Save settings
+7. These seem to expire and have usage limits, so consider early if debugging
 
 *IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
