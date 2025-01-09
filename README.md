@@ -19,7 +19,7 @@ Point your browser to `http://localhost:8080`.
 
 ```docker compose --profile pipelines up```
 
-This project contains a hello world filter pipeline and docker-runs the open-webui/pipelines project. 
+This project contains a hello world filter pipeline 
 
 To configure:
 1. make sure the pipelines service is running via ```docker ps```
