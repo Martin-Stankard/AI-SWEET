@@ -34,7 +34,9 @@ Your pipelines should now be active.
 ```docker compose --profile flowise up```
 
 Point your browser to `http://localhost:3000`. 
-- I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99
+- I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99 ( AWESOME Flowise training, vast subject )
+- TODO, include a --profile flowise-solution service that hosts a "live, dynamic load embed?" index.html minimalist flowise solution server. Include importable bit.
+-- problem, need to clean importable demo whatever to embed. Something useful like a rag input scrubber > just search. nginx.index.html || full react shebang
 
 ### Add Google Search via Open Web-UI settings
 
