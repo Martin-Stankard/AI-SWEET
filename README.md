@@ -33,7 +33,8 @@ Your pipelines should now be active.
 
 ```docker compose --profile flowise up```
 
-Point your browser to `http://localhost:3000`. Open Webui is still available at Point your browser to `http://localhost:8080`.
+Point your browser to `http://localhost:3000`. 
+- I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99
 
 ### Add Google Search via Open Web-UI settings
 
