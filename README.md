@@ -39,14 +39,15 @@ Point your browser to `http://localhost:3000`.
 -- problem, need to clean importable demo whatever to embed. Something useful like a rag input scrubber > just search. nginx.index.html || full react shebang
 
 ### nginx untested
- - to host Flowise embeddings. https://localhost:8089/
+ - to host Flowise embeddings. 
+ - https://localhost:8089/
  - part of profile flowise   
 
 ### qdrant untested
  - for vector embeddings/fancy rag
  - https://localhost:6333
  - https://localhost:6334
-
+ - default profile until further notice.
 
 ### Add Google Search via Open Web-UI settings
 
