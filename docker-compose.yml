@@ -59,8 +59,7 @@ services:
     restart: always
     networks:
       - ollama-docker
-    profiles:
-      - pipelines
+
 
   flowise:
     image: flowiseai/flowise
