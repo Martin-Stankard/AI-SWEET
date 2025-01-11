@@ -57,4 +57,4 @@ class Pipeline:
         print(user_message)
         print(body)
 
-        return f"{model_id} response to: {user_message}"
+        return f"FLOWISE!!! {model_id} response to: {user_message}"
