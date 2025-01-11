@@ -5,6 +5,15 @@ version: 3.3
 license: MIT
 required_open_webui_version: 0.4.4
 
+
+fail; going back to helllo world scaffold for now.
+
+open-webui  | WARNI [python_multipart.multipart] Skipping data after last boundary
+pipelines   | WARNING:root:No Pipeline class found in flowiseManifold
+pipelines   | Error loading module: flowiseManifold
+pipelines   | No module named 'open_webui'
+open-webui  | upload_pipeline 1 flowiseManifold.py
+
 TODO
 - [x] Update to OWUI 0.4.x
 - [x] Upgrade to Manifold
