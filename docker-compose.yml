@@ -20,9 +20,7 @@ services:
       - WEBUI_SECRET_KEY=123456
     extra_hosts:
       - host.docker.internal:host-gateway
-    restart: unless-stopped
-    networks:
-      - ollama-docker   
+    restart: unless-stopped   
 
   ollama:
     image: ollama/ollama:latest
@@ -36,8 +34,6 @@ services:
     restart: always
     environment:
       - OLLAMA_KEEP_ALIVE=24h
-    networks:
-      - ollama-docker
     deploy:
       resources:
         reservations:
@@ -57,10 +53,6 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: always
-    networks:
-      - ollama-docker
-    profiles:
-      - pipelines
 
   flowise:
     image: flowiseai/flowise
@@ -103,23 +95,15 @@ services:
       - GLOBAL_AGENT_HTTPS_PROXY=${GLOBAL_AGENT_HTTPS_PROXY}
       - GLOBAL_AGENT_NO_PROXY=${GLOBAL_AGENT_NO_PROXY}
       - DISABLED_NODES=${DISABLED_NODES}
-    networks:
-      - ollama-docker
     entrypoint: /bin/sh -c "sleep 3; flowise start"
-    profiles:
-      - flowise
-
+    
   nginx:
     image: nginx:1-alpine
     ports:
       - 8089:80
     volumes:
       - ./Flowise/nginx/:/usr/share/nginx/html
-    networks:
-      - ollama-docker
-    profiles:
-      - flowise
-
+    
   qdrant:
     image: qdrant/qdrant:latest
     restart: always
@@ -136,17 +120,12 @@ services:
         target: /qdrant/config/production.yaml
     volumes:
       - ../qdrant_data:/qdrant/storage
-    networks:
-      - ollama-docker
     
 
 configs:
   qdrant_config:
     content: |
       log_level: INFO      
-
-networks:
-  ollama-docker:
 
 volumes:
   pipelines:
