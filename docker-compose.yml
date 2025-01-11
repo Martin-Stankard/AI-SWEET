@@ -115,6 +115,8 @@ services:
       - 8089:80
     volumes:
       - ./Flowise/nginx/:/usr/share/nginx/html
+    networks:
+      - ollama-docker
     profiles:
       - flowise
 
