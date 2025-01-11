@@ -134,6 +134,9 @@ services:
         target: /qdrant/config/production.yaml
     volumes:
       - ./qdrant_data:/qdrant/storage
+    networks:
+      - ollama-docker
+    
 
 configs:
   qdrant_config:
@@ -142,7 +145,6 @@ configs:
 
 networks:
   ollama-docker:
-    external: false
 
 volumes:
   pipelines:
