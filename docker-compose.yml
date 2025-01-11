@@ -69,7 +69,7 @@ services:
       - ~/.flowise:/root/.flowise
     pull_policy: always
     ports:
-      - 9098:9098
+      - '${PORT}:${PORT}'
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: always
@@ -105,6 +105,7 @@ services:
       - DISABLED_NODES=${DISABLED_NODES}
     networks:
       - ollama-docker
+    entrypoint: /bin/sh -c "sleep 3; flowise start"
     profiles:
       - flowise
 
