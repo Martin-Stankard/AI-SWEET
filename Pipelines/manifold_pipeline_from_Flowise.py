@@ -1,3 +1,10 @@
+"""
+title: minimalist, ollama, open web-ui, Flowise Manifold
+author: mps following matthewh
+version: 0.0.1
+license: MIT
+"""
+
 from typing import List, Union, Generator, Iterator
 from schemas import OpenAIChatMessage
 
