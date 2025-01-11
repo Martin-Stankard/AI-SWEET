@@ -63,18 +63,3 @@ To add Google search functionality:
 *IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
 ### TODOs
-
-* get flowise manifold working in open webui
-* use qdrant for a vector store even though csv agents are likely it for my rags needs for a while...
-* Pydantic deep dive analyzing this: [YouTube Video](https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY)
-* Think about a scraper tool
-* Pie in the sky....test the --profile pipelines++ config "nightly". I am positive if I don't use it for a week, I will watch a 1 hour update and build process fail.
-
-* Here are some instances of `flowise` images used in `docker-compose.yml` files, may analyze:
-
-- [bigbeartechworld/big-bear-casaos](https://github.com/bigbeartechworld/big-bear-casaos/blob/2e0f6b31759f81d075feddec71127d6a5c77c030/Apps/flowise/docker-compose.yml#L1-L87)
-- [coleam00/ai-agents-masterclass](https://github.com/coleam00/ai-agents-masterclass/blob/f1c4ef0911ec005b7e09f1805e4aea212386864f/local-ai-packaged/docker-compose.yml#L1-L102)
-- [meliani/docker-library](https://github.com/meliani/docker-library/blob/a0cad113993b71f533e65c88d2e534e1cee3814d/apps/flowise/docker-compose.yml#L1-L26)
-- [sciencemediacenter/lab-scicar2024-workshop](https://github.com/sciencemediacenter/lab-scicar2024-workshop/blob/4e40ca2c53c602b6a764f31fc9d372c9f0abe306/examples/flowise/docker-compose.yml#L1-L36)
-- [yorch/docker-compose-services](https://github.com/yorch/docker-compose-services/blob/78b0e5d45dd9332f4a687392b034a32a6b747341/flowise/docker-compose.yml#L1-L53)
-- [ragincajunbanjo/runtipi-appstore](https://github.com/ragincajunbanjo/runtipi-appstore/blob/1cf3d0f10109e2c18c4b5b59fe47d80a8f347f64/apps/flowise/docker-compose.yml#L1-L53)
