@@ -64,7 +64,8 @@ To add Google search functionality:
 
 ### TODOs
 
-* Bringing Flowise here
+* fix flowise-nginx embedding demo
+* use qdrant for a vector store even though csv agents are likely it for my rags needs for a while...
 * Pydantic deep dive analyzing this: [YouTube Video](https://youtu.be/pC17ge_2n0Q?si=vzgZlxL1x-60r5MY)
 * Think about a scraper tool
 * Pie in the sky....test the --profile pipelines++ config "nightly". I am positive if I don't use it for a week, I will watch a 1 hour update and build process fail.
