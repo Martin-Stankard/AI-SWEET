@@ -19,8 +19,6 @@ Flowise is at `http://localhost:
 ### Pipelines
 ## Powerful, dangerous stuff as it executes user input raw python code.
 
-
-
 To configure:
 1. make sure the pipelines service is running via ```docker ps```
 1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
@@ -32,11 +30,9 @@ Your pipelines should now be active. Load into admin settings > pipelines.
 
 ### Flowise
 
-```docker compose --profile flowise up```
-
-Point your browser to `http://localhost:3000`. 
+Flowise `http://localhost:3000`. 
 - I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99 ( AWESOME Flowise training, vast subject )
-- Import `./Flowise\agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes ) whether your question requiers "search" or "no search".
+- Import `./Flowise/agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes  whether your question requiers "search" or "no search". )
 
 ### qdrant TODO, no api key rag vector db, hopefully.
  - for vector embeddings/fancy rag
