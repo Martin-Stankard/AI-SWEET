@@ -14,7 +14,7 @@ cd ./AI-SWEET
 docker-compose up
 ```
 Point your browser to `http://localhost:8080`.
-Flowise is at `http://localhost:
+Flowise is at `http://localhost:3000`.
 
 ### Pipelines
 ## Powerful, dangerous stuff as it executes user input raw python code.
@@ -32,7 +32,7 @@ Your pipelines should now be active. Load into admin settings > pipelines.
 
 Flowise `http://localhost:3000`. 
 - I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99 ( AWESOME Flowise training, vast subject )
-- Immediate open web-ui test project, import `./Flowise/agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes  whether your question requiers "search" or "no search". )
+- Immediate open web-ui test project, import `./Flowise/agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes  whether your question requires "search" or "no search". TODO, clean up logging/use autocomplete in webui. )
 
 ### qdrant TODO, no api key rag vector db, hopefully.
  - for vector embeddings/fancy rag
