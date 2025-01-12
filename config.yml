@@ -1,0 +1,3 @@
+http:
+  # ... your http configuration for qdrant
+  api_key: your_secret_api_key

@@ -116,7 +116,8 @@ services:
       - source: qdrant_config
         target: /qdrant/config/production.yaml
     volumes:
-      - ../qdrant_data:/qdrant/storage
+      - qdrant:/qdrant/storage
+      - ./config.yaml:/qdrant/config.yaml
     networks:
     - ollama-docker
 
@@ -167,6 +168,7 @@ volumes:
   pipelines:
   ollama:
   open-webui:
+  qdrant:
   postgres:
   pgadmin:
   
