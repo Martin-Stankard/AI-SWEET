@@ -8,7 +8,7 @@ class Pipeline:
         pass  # No API key needed for Flowise API
 
     def __init__(self):
-        # name in Flowise>Agentflows
+        # name in Flowise>Agentflows/Chatflows
         self.name = "agentflow_test001"
         self.valves = self.Valves()
 

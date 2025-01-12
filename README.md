@@ -3,7 +3,7 @@
 
 ### Overview
 
-AI-SWEET is a "Docker Compose up" minimal default setup designed for local development and testing. Because I forget long commands 
+AI-SWEET is a "Docker Compose up" minimal default, local ollama-openwebui-flowise docker system  for feature extension and access. 
 
 ### Running AI-SWEET
 
@@ -14,19 +14,21 @@ cd ./AI-SWEET
 docker-compose up
 ```
 Point your browser to `http://localhost:8080`.
+Flowise is at `http://localhost:
 
 ### Pipelines
+## Powerful, dangerous stuff as it executes user input raw python code.
 
 
-This project contains a hello world filter pipeline, as well as 
 
 To configure:
 1. make sure the pipelines service is running via ```docker ps```
 1. Navigate to the Admin Panel > Settings > Connections > OpenAI API section in Open WebUI.
-2. Add new API URL: `http://host.docker.internal:9099` and API key: `0p3n-w3bu!`.
+2. Add new API URL: `http://host.docker.internal:9099` and API key: `0p3n-w3bu!`. Test button available under settings, should be green
 
-Your pipelines should now be active.
-- `./Pipelines/filterPipelineHelloWorld.py`: Load into admin settings > pipelines. Good feedback in pipelines services log AND baseline OpenWebUI llm use. Powerful, dangerous stuff as it executes user input raw python code.
+Your pipelines should now be active. Load into admin settings > pipelines. 
+- `./Pipelines/filterPipelineHelloWorld.py`: This offers good feedback in pipelines services log AND baseline OpenWebUI llm use. 
+- `./Pipelines/flowise_agentflow_test001.py`: Find and change API_URL ( from flowise flow embed dialogue ) and self.name, to mathch a flow named "test001". Select in open-webui, 
 
 ### Flowise
 
@@ -34,15 +36,9 @@ Your pipelines should now be active.
 
 Point your browser to `http://localhost:3000`. 
 - I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99 ( AWESOME Flowise training, vast subject )
-- TODO, include a --profile flowise-solution service that hosts a "live, dynamic load embed?" index.html minimalist flowise solution server. Include importable bit.
--- problem, need to clean importable demo whatever to embed. Something useful like a rag input scrubber > just search. nginx.index.html || full react shebang
+- Import `./Flowise\agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes ) whether your question requiers "search" or "no search".
 
-### nginx untested
- - to host Flowise embeddings. 
- - https://localhost:8089/
- - part of profile flowise   
-
-### qdrant untested
+### qdrant TODO, no api key rag vector db, hopefully.
  - for vector embeddings/fancy rag
  - https://localhost:6333
  - https://localhost:6334
@@ -57,8 +53,10 @@ To add Google search functionality:
 4. Enable "Web Search Engine"
 5. From the Google search engine you created, get the "Google PSE Engine Id" and the "Google PSE API Key". (Keep that secret)
 6. Save settings
-7. These seem to expire and have usage limits, so consider early if debugging
+7. These seem to expire and have usage limits, so consider early if debugging.
+8. Same credentials for a flowise Google custom search tool.
 
-*IMPORTANT*: In the Web UI, normal chat interface, there is a '+'. Choose Web search there.
+*IMPORTANT*: In the Open Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
 ### TODOs
+Possibly done after qdrant/rag process is streamlined
