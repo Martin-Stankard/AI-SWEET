@@ -117,6 +117,8 @@ services:
         target: /qdrant/config/production.yaml
     volumes:
       - ../qdrant_data:/qdrant/storage
+    http:  
+      api_key: your_secret_api_key
     networks:
     - ollama-docker
 

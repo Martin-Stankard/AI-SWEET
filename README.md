@@ -2,8 +2,8 @@
 ===============
 
 ### Overview
-
-AI-SWEET is a "Docker Compose up" minimal default, local ollama-openwebui-flowise docker system  for feature extension and access. 
+- This is for local, on your own, private computer. Lots of bad api-key practices here, this is like lab equipment atm.
+- AI-SWEET is a "Docker Compose up" minimal default, local ollama-openwebui-flowise docker system  for feature extension and access. 
 
 ### Running AI-SWEET
 
