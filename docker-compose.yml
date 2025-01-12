@@ -120,7 +120,35 @@ services:
     networks:
     - ollama-docker
 
- 
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123password
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - ollama-docker
+    restart: unless-stopped
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: trash@throwaway.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    ports:
+      - "8079:80"
+    networks:
+      - ollama-docker
+    restart: unless-stopped
 
 
 
@@ -139,5 +167,6 @@ volumes:
   pipelines:
   ollama:
   open-webui:
-  mysql:
+  postgres:
+  pgadmin:
   
