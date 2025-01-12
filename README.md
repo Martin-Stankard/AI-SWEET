@@ -26,13 +26,13 @@ To configure:
 
 Your pipelines should now be active. Load into admin settings > pipelines. 
 - `./Pipelines/filterPipelineHelloWorld.py`: This offers good feedback in pipelines services log AND baseline OpenWebUI llm use. 
-- `./Pipelines/flowise_agentflow_test001.py`: Find and change API_URL ( from flowise flow embed dialogue ) and self.name, to mathch a flow named "test001". Select in open-webui, 
+- `./Pipelines/flowise_agentflow_test001.py`: Find and change API_URL ( from flowise flow embed dialogue ) and self.name, to mathch a flow named "test001". Select in open-webui, needs a Flowise project to work
 
 ### Flowise
 
 Flowise `http://localhost:3000`. 
 - I recomend this to continue: https://youtu.be/9TaRksXuLWY?si=PXheDAWPwM2wB-99 ( AWESOME Flowise training, vast subject )
-- Import `./Flowise/agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes  whether your question requiers "search" or "no search". )
+- Immediate open web-ui test project, import `./Flowise/agentflow_test001 Agents.json` for immediate pipeline feedback ( it just analyzes  whether your question requiers "search" or "no search". )
 
 ### qdrant TODO, no api key rag vector db, hopefully.
  - for vector embeddings/fancy rag
