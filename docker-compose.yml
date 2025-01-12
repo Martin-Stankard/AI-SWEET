@@ -102,23 +102,39 @@ services:
       - ollama-docker
 
   qdrant:
-      image: qdrant/qdrant:latest
-      restart: always
-      container_name: qdrant
-      ports:
-        - 6333:6333
-        - 6334:6334
-      expose:
-        - 6333
-        - 6334
-        - 6335
-      configs:
-        - source: qdrant_config
-          target: /qdrant/config/production.yaml
-      volumes:
-        - ../qdrant_data:/qdrant/storage
-      networks:
-      - ollama-docker
+    image: qdrant/qdrant:latest
+    restart: always
+    container_name: qdrant
+    ports:
+      - 6333:6333
+      - 6334:6334
+    expose:
+      - 6333
+      - 6334
+      - 6335
+    configs:
+      - source: qdrant_config
+        target: /qdrant/config/production.yaml
+    volumes:
+      - ../qdrant_data:/qdrant/storage
+    networks:
+    - ollama-docker
+
+  postgresql:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: example
+    networks:
+    - ollama-docker
 
 
 configs:
