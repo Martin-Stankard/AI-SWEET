@@ -117,41 +117,33 @@ services:
         target: /qdrant/config/production.yaml
     volumes:
       - qdrant:/qdrant/storage
-      - ./config.yaml:/qdrant/config.yaml
+      - ./qdrant/config.yaml:/qdrant/config.yaml
     networks:
       - ollama-docker
 
   postgres:
-    container_name: postgres
     image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123password
-      PGDATA: /data/postgres
-    volumes:
-       - postgres:/data/postgres
+    container_name: postgres
+    restart: always
     ports:
       - "5432:5432"
-    networks:
-      - ollama-docker
-    restart: unless-stopped
-  
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: trash@throwaway.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      POSTGRES_USER: user-name
+      POSTGRES_PASSWORD: strong-password
     volumes:
-       - pgadmin:/var/lib/pgadmin
+      - postgres:/var/lib/postgresql/data
+        
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
     ports:
-      - "8079:80"
-    networks:
-      - ollama-docker
-    restart: unless-stopped
-
-
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: strong-password
+    volumes:
+      - pgadmin:/var/lib/pgadmin
 
 configs:
   qdrant_config:
