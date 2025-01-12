@@ -3,7 +3,7 @@
 
 ### Overview
 
-AI-SWEET is a "Docker Compose up" minimal defauly setup designed for local development and testing. Because I forget long commands 
+AI-SWEET is a "Docker Compose up" minimal default setup designed for local development and testing. Because I forget long commands 
 
 ### Running AI-SWEET
 
@@ -17,9 +17,8 @@ Point your browser to `http://localhost:8080`.
 
 ### Pipelines
 
-```docker compose --profile pipelines up```
 
-This project contains a hello world filter pipeline 
+This project contains a hello world filter pipeline, as well as 
 
 To configure:
 1. make sure the pipelines service is running via ```docker ps```

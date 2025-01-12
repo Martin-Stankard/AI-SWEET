@@ -8,6 +8,7 @@ class Pipeline:
         pass  # No API key needed for Flowise API
 
     def __init__(self):
+        # name in Flowise>Agentflows
         self.name = "agentflow_test001"
         self.valves = self.Valves()
 
@@ -24,7 +25,7 @@ class Pipeline:
 
         print(messages)
         print(user_message)
-
+        # retrieved from 
         API_URL = "http://host.docker.internal:3000/api/v1/prediction/d13b56be-cd07-47e0-80ac-e48ab9adc51b"
 
         headers = {
