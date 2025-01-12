@@ -8,7 +8,7 @@ class Pipeline:
         pass  # No API key needed for Flowise API
 
     def __init__(self):
-        self.name = "your flowise chatbot name"
+        self.name = "test001"
         self.valves = self.Valves()
 
     async def on_startup(self):
@@ -25,7 +25,7 @@ class Pipeline:
         print(messages)
         print(user_message)
 
-        API_URL = "your flowise chatbot url"
+        API_URL = "http://host.docker.internal:3000/api/v1/prediction/b025a56b-a4e6-4786-8fad-2200c64521c2"
 
         headers = {
             "Content-Type": "application/json"
