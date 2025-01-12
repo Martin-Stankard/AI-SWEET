@@ -56,4 +56,11 @@ To add Google search functionality:
 *IMPORTANT*: In the Open Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
 ### TODOs
-Possibly done after qdrant/rag process is streamlined
+- Possibly done after qdrant/rag process is streamlined
+- export and import (and test after git clone) a cool multi agent 
+- total nuke readme cleanup...even ollama volume : (
+-- if I forget pipelines and search in opnewebui, CAN import a flow, take a picture of rag upsert settings (no need for pgadmin maybe)
+-- would like all named volumes
+- not in the zone with flowise into web ui pipeline yet. 
+-- Need to fix flowise pipeline autocomplete at a minimum 
+-- open webui search is buggy as f, compared to same credentials in flowise, it WILL search, then say I can't find anything...doesn't need to be here/here is about flowise I am thinking... 
