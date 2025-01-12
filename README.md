@@ -64,3 +64,4 @@ To add Google search functionality:
 - not in the zone with flowise into web ui pipeline yet. 
 -- Need to fix flowise pipeline autocomplete at a minimum 
 -- open webui search is buggy as f, compared to same credentials in flowise, it WILL search, then say I can't find anything...doesn't need to be here/here is about flowise I am thinking... 
+- biggun csv's days are numbered...useful to test rag +/- tho.
