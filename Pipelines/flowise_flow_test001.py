@@ -9,7 +9,7 @@ class Pipeline:
 
     def __init__(self):
         # name in Flowise>Agentflows/Chatflows
-        self.name = "agentflow_test001"
+        self.name = "docstore001"
         self.valves = self.Valves()
 
     async def on_startup(self):
@@ -26,7 +26,7 @@ class Pipeline:
         print(messages)
         print(user_message)
         # retrieved from 
-        API_URL = "http://host.docker.internal:3000/api/v1/prediction/d13b56be-cd07-47e0-80ac-e48ab9adc51b"
+        API_URL = "http://host.docker.internal:3000/api/v1/prediction/1c52cb06-1128-42cb-8027-732684a6486d"
 
         headers = {
             "Content-Type": "application/json"
