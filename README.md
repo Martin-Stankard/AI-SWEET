@@ -36,12 +36,11 @@ Flowise `http://localhost:3000`.
 
 ### qdrant TODO, no api key rag vector db, hopefully.
  - for vector embeddings/fancy rag
- - https://localhost:6333
- - https://localhost:6334
- - default profile until further notice.
+ - http://localhost:6333/dashboard#/collections
 
  ### postgres and pgadmin
- - 
+ - for record manager on flowise knowledge base "upsert"
+ - http://localhost:8888/browser/     
 
 ### Add Google Search via Open Web-UI settings
 

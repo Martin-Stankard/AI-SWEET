@@ -132,6 +132,8 @@ services:
       POSTGRES_PASSWORD: strong-password
     volumes:
       - postgres:/var/lib/postgresql/data
+    networks:
+      - ollama-docker
         
   pgadmin:
     image: dpage/pgadmin4
@@ -144,6 +146,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: strong-password
     volumes:
       - pgadmin:/var/lib/pgadmin
+    networks:
+      - ollama-docker
 
 configs:
   qdrant_config:
