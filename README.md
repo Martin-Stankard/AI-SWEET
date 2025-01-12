@@ -41,7 +41,7 @@ Flowise `http://localhost:3000`.
  - default profile until further notice.
 
  ### postgres and pgadmin
- - pgAdminMasterPassword = 123Password 
+ - 
 
 ### Add Google Search via Open Web-UI settings
 
