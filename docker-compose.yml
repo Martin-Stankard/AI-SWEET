@@ -119,7 +119,7 @@ services:
       - qdrant:/qdrant/storage
       - ./config.yaml:/qdrant/config.yaml
     networks:
-    - ollama-docker
+      - ollama-docker
 
   postgres:
     container_name: postgres
