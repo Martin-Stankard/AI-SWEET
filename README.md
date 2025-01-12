@@ -2,7 +2,7 @@
 ===============
 
 ### Overview
-- This is for local, on your own, private computer. Lots of bad api-key practices here, this is like lab equipment atm.
+- This is for local, on your own, private computer. Lots of bad api-key practices here. This is like lab equipment atm.
 - AI-SWEET is a "Docker Compose up" minimal default, local ollama-openwebui-flowise docker system  for feature extension and access. 
 
 ### Running AI-SWEET
@@ -42,8 +42,7 @@ Flowise `http://localhost:3000`.
  - for record manager on flowise knowledge base "upsert"
  - http://localhost:8888/browser/     
 
-### Add Google Search via Open Web-UI settings
-
+### Add Google Search via Open Web-UI settings (same credentials inside flowise)
 To add Google search functionality:
 1. Start here: [Google Programmable Search Engine](https://programmablesearchengine.google.com/about/)
 2. Create a new search engine
