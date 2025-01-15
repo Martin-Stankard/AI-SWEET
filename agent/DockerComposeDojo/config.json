@@ -1,3 +1,8 @@
 {
-    "simple pie in the sky, 10 sentence prompt"
+    "simple pie in the sky, 10 sentence prompt": {
+        "image": "python:3.7",
+        "command": "python -c 'print(\"Hello, world!\")'",
+        "expected_output": "Hello, world!\n",
+        "timeout": 1
+    }
 }
