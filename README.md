@@ -60,3 +60,7 @@ To add Google search functionality:
 -- rename image files
 -- accompanying namer.config contains name - vision plain text prompt.
 -- liking a 
+
+- better tts, kokoro82m out of open webui is feeling like a need
+
+- 1000 points of a new cloud app, software creation checklist 

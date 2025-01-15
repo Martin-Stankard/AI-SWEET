@@ -1,8 +1,64 @@
 {
-    "simple pie in the sky, 10 sentence prompt": {
-        "image": "python:3.7",
-        "command": "python -c 'print(\"Hello, world!\")'",
-        "expected_output": "Hello, world!\n",
-        "timeout": 1
+    "FunctionalCapabilities": {
+      "Reuse of Existing/COTS Software": {
+        "description": "Any reuse of existing software or use of COTS software is fully described."
+      },
+      "Adaptation Requirements": {
+        "description": "All adaptation requirements (e.g., geographic parameters, platform variations) are identified."
+      },
+      "Timing, Resource Usage, and System Load Requirements": {
+        "description": "Applicable timing, resource usage (e.g., CPU, memory, bandwidth), and associated system load requirements are identified."
+      },
+      "Operating Environment Factors": {
+        "description": "The effect of the operating system, executive, or COTS has been factored into the performance requirements and resource budgets."
+      },
+      "Safety Requirements": {
+        "description": "Applicable safety requirements are identified."
+      },
+      "Security Requirements": {
+        "description": "Applicable security requirements are identified."
+      },
+      "Design Constraints": {
+        "description": "Applicable design constraint requirements (e.g., object-oriented design, language, support environment) are identified."
+      },
+      "Software Quality Attributes": {
+        "description": "Applicable software quality attributes (e.g., reliability, maintainability, testability) are identified."
+      },
+      "Human Performance/Human Engineering Requirements": {
+        "description": "Applicable human performance/human engineering requirements are identified."
+      },
+      "Acceptance Criteria": {
+        "description": "Applicable acceptance criteria (e.g., test, inspection, demonstration) are identified."
+      },
+      "Delivery Requirements": {
+        "description": "Delivery requirements (e.g., media, marking) are documented."
+      },
+      "Traceability": {
+        "description": "Requirements are traceable to requirements allocated to software."
+      },
+      "TBD Requirements": {
+        "description": "TBD requirements are scheduled for completion as documented action items."
+      },
+      "Data Flows": {
+        "description": "All functional data flows are specified, including sources and destinations."
+      },
+      "Inputs/Outputs of Each Requirement": {
+        "description": "Inputs and outputs of each requirement are necessary and sufficient for the specified processing. The purpose of the inputs and outputs is stated."
+      },
+      "Mathematical Equations": {
+        "description": "Mathematical equations required as constraints on processing are given or referenced."
+      },
+      "Accuracy and Precision Requirements": {
+        "description": "Accuracy and precision requirements are defined."
+      },
+      "Software Functions": {
+        "description": "All software functions (e.g., startup, restart, modes of operation, shutdown, normal terminations, abnormal conditions, performance monitoring and tuning) are considered."
+      },
+      "Operator Interactions": {
+        "description": "All operator interactions are considered."
+      },
+      "Functional Processing Requirements": {
+        "description": "All functional processing requirements are specified for recognized software functions."
+      }
     }
-}
+  }
