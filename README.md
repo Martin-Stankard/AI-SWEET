@@ -56,7 +56,7 @@ To add Google search functionality:
 *IMPORTANT*: In the Open Web UI, normal chat interface, there is a '+'. Choose Web search there.
 
 ### TODOs
-- simple llama vision agent, run as: python namer.py -f < some directory full of pictures with messy names >; 
+- simple llama vision agent, run as: python PictureNamer.py -f < some directory full of pictures with messy names >; 
 -- rename image files
 -- accompanying namer.config contains name - vision plain text prompt.
 -- liking a 
