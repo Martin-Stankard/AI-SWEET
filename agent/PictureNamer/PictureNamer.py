@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import docker
+import requests
 
 def load_config(config_path):
     with open(config_path, 'r') as file:
@@ -29,6 +30,12 @@ def main():
     print("Loaded config:", config)
 
     check_ollama_container()
+    
+    response = requests.get('http://localhost:11434/api/tags')
+    if response.status_code == 200:
+        print("Tags:", json.dumps(response.json(), indent=4))
+    else:
+        print("Failed to get tags:", response.status_code)
 
 if __name__ == "__main__":
     main()
