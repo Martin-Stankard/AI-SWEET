@@ -9,7 +9,9 @@
 
 ## Now just prints out potential names fodder string. 
 
-### I don't want to leave file writing possibilites alive here at this time, so a "next step will be renaming the file or...seems ott not rename it, and log the na...maybe not ott. TODO/recycle this elsewhere will be part of a pipeline
+ I don't want to leave file writing possibilites alive here at this time, so a "next step will be renaming the file or...seems ott not rename it, and log the na...maybe not ott. TODO/recycle this elsewhere will be part of a pipeline
+
+ (todo, get into diagrams)
 
 (image prompt, prompt, configs ? ) -> gen-ai-img -> image to file with stupid name + image-ref
                                                      \ - async  
