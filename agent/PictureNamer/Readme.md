@@ -23,7 +23,7 @@
 
 ### -goal would be to drive gen-ai-image input , via a hot or not, per param?, review; available asap...could be available before dscription/which hot or not viewer (optional) sees/wants to see/positive value from seeing...worth learning what comes out of description process.
 ### -usefulness will be driven by tile/tilable/elemental abstraction driven by "image prompt"... something like a button.
-### -industrial utility...this image pipeline is used on the library of "image prompts"
+### -industrial utility...this image pipeline is used on the library of "image prompts", font awesome round 1 plus .... rubiks cube matrix border tilable  .... plus really simple 1/3rd foreground, 2/3rd midground, whole page background.
 
 
 # Seperate TODO topic 
