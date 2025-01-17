@@ -44,3 +44,10 @@ Test manual here, docker compose up ==
     - unit tests run
     - postman config is ready to be used and already ran automated
     - manual local use and tests time.
+
+
+TODO/next level is deploy to aws. 
+- move local tests to cloud
+- if those are happy then move to aws
+- pie in the sky at this point is a docker compose up , control app with big stuipid button DEPLOY!!!
+-- have a blue green something...probably inherent to "add new feature" swiss army knife of support utility binding/pluding/pita...
