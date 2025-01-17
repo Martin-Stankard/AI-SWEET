@@ -36,6 +36,15 @@ def main():
         print("Tags:", json.dumps(response.json(), indent=4))
     else:
         print("Failed to get tags:", response.status_code)
+        
+    delete_payload = {
+        "model": "gemma:latest"
+    }
+    delete_response = requests.delete('http://localhost:11434/api/delete', json=delete_payload)
+    if delete_response.status_code == 200:
+        print("Delete successful")
+    else:
+        print("Failed to delete:", delete_response.status_code)
 
 if __name__ == "__main__":
     main()
