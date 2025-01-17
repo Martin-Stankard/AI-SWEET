@@ -2,7 +2,7 @@
 ## One folder at a time
 - from this./ folder:
 - ```pip install -r requirement.txt```
-- ```python PictureNamer -f <path to directory full of poorly named images>```
+- ```python PictureNamer -f ./```
 
 
 # doesn't do anything yet if you stumble in here on main branch...
