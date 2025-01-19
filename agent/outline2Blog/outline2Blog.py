@@ -21,31 +21,22 @@ def check_ollama_container():
     except docker.errors.NotFound:
         print("Ollama container not found.")
 
-def check_vision_model():
+def check_models():
     response = requests.get('http://localhost:11434/api/tags')
     if response.status_code == 200:
         tags = response.json()
         for model in tags.get('models', []):
-            if model.get('model') == 'llama3.2-vision:latest':
-                print("Model 'llama3.2-vision:latest' is there.")
-                return True
-        print("Model 'llama3.2-vision:latest' isn't there.")
-        return False
-    else:
-        print("Failed to get tags:", response.status_code)
-        return False
+            print(model.get('model'))     
+       
 
 def main():
-    parser = argparse.ArgumentParser(description='Picture Namer utility agent')
-    parser.add_argument('-f', '--folder', required=True, help='Path to the directory full of poorly named images')
-    args = parser.parse_args()
-
+    
     config_path = os.path.join(os.path.dirname(__file__), 'config.json')
     config = load_config(config_path)
     print("Loaded config:", config)
 
     check_ollama_container()
-    begin = check_vision_model()
+    begin = check_models()
     if begin:
         print("Starting to name pictures in", args.folder)
         for filename in os.listdir(args.folder):
