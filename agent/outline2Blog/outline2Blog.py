@@ -5,6 +5,11 @@ import docker
 import requests
 import ollama
 
+#magic number globals
+MYMODELS = ["llama3.1:8b", "qwen:7b", "mistral:latest", "llama3.2:latest"]
+CRITS = 5
+BULLET2SENTENCE = 2.83
+
 def load_config(config_path):
     with open(config_path, 'r') as file:
         config = json.load(file)
@@ -25,9 +30,16 @@ def check_models():
     response = requests.get('http://localhost:11434/api/tags')
     if response.status_code == 200:
         tags = response.json()
-        for model in tags.get('models', []):
-            print(model.get('model'))     
-       
+        models_present = [model.get('model') for model in tags.get('models', [])]
+        if all(required_model in models_present for required_model in MYMODELS):
+            print("All required models are present.")
+            return True
+        else:
+            print("Not all required models are present.")
+            return False
+    else:
+        print("Failed to get tags:", response.status_code)
+        return False
 
 def main():
     
@@ -39,25 +51,16 @@ def main():
     check_ollama_container()
     begin = check_models()
     if begin:
-        print("Starting to name pictures in", args.folder)
-        for filename in os.listdir(args.folder):
-            if filename.lower().endswith(( '.png', '.jpg' )):
-                print(filename)
-                image_path = os.path.join(args.folder, filename)
-                
-                res = ollama.chat(
-                    model="TODO some variable",
-                    messages=[
-                        {
-                            'role': 'user',
-                            'content': "TODO important 2-3 sentences from Martin about 4  + 4*3  +4"                        }
-                            # valuable design insights, I need 3 prompt templates. WRITE, CRIT, REWRITE . 
-                            # some nested n model loop, then a n-1 
-                    ]
-                )
-                print(res['message']['content'])
+        print("Starting the process with all required models.")
+        # foreach model,
+        for model in MYMODELS:
+            print(f"Processing with model: {model}")
+            # Add your processing logic here
+            
+            
+            
     else:
-        print("Exiting program as the required model is not found.")
+        print("Exiting program as the required models are not found.")
         exit(1)
 
 if __name__ == "__main__":

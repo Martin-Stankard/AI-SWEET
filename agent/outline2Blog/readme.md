@@ -6,7 +6,7 @@ python ./outline2Blog.py
 -- keys don't matter / good place for comments maybe
 -- respects links
 -- Limit!!! 2 levels. This is a product blaster. Just won't look, just won't care implementation.
-- estimate a 3.13 sentence to bullet, magic number BULLET2SENTENCE
+- estimate a 2.83 sentence to bullet, magic number BULLET2SENTENCE
 - outputs to output001.txt
 
 
