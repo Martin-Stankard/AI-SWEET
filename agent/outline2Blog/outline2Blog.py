@@ -32,6 +32,7 @@ def check_models():
 def main():
     
     config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+    #TODDO ordered dict https://stackoverflow.com/questions/6921699/can-i-get-json-to-load-into-an-ordereddict
     config = load_config(config_path)
     print("Loaded config:", config)
 
@@ -45,13 +46,13 @@ def main():
                 image_path = os.path.join(args.folder, filename)
                 
                 res = ollama.chat(
-                    model="llama3.2-vision:latest",
+                    model="TODO some variable",
                     messages=[
                         {
                             'role': 'user',
-                            'content': "Describe this image in 5 words. Exclude prepositions and articles and any special characters or concern for grammar.",
-                            'images': [image_path]
-                        }
+                            'content': "TODO important 2-3 sentences from Martin about 4  + 4*3  +4"                        }
+                            # valuable design insights, I need 3 prompt templates. WRITE, CRIT, REWRITE . 
+                            # some nested n model loop, then a n-1 
                     ]
                 )
                 print(res['message']['content'])
