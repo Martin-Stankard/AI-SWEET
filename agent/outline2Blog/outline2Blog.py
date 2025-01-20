@@ -13,11 +13,6 @@ writingPrompt = ""
 critiquePrompt = ""
 rewritePrompt = ""
 
-def load_config(config_path):
-    with open(config_path, 'r') as file:
-        config = json.load(file)
-    return config
-
 def check_ollama_container():
     client = docker.from_env()
     try:
@@ -44,14 +39,22 @@ def check_models():
         print("Failed to get tags:", response.status_code)
         return False
 
+def load_outline_csv(file_path, start_line=44):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    formatted_lines = [f'"{line.strip()}"' for line in lines[start_line-1:]]
+    if len(formatted_lines) > 1:
+        return ', '.join(formatted_lines[:-1]) + ' and ' + formatted_lines[-1]
+    return formatted_lines[0] if formatted_lines else ''
+
 def main():
+
+    outline_path = os.path.join(os.path.dirname(__file__), 'outline.csv')
+    outline_list = load_outline_csv(outline_path)
+    print("Loaded outline from CSV:", outline_list)
+    #convert the outline_list to a 
     
-    config_path = os.path.join(os.path.dirname(__file__), 'config.json')
-    #TODDO ordered dict https://stackoverflow.com/questions/6921699/can-i-get-json-to-load-into-an-ordereddict
-    config = load_config(config_path)
-    #change to or
     
-    print("Loaded config:", config)
 
     check_ollama_container()
     begin = check_models()
@@ -67,7 +70,7 @@ def main():
             
             # remove model from copyMyModel
             
-            #for each m in copyMyModel
+            # for each m in copyMyModel
             
             
             
