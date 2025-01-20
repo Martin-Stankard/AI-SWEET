@@ -9,6 +9,9 @@ import ollama
 MYMODELS = ["llama3.1:8b", "qwen:7b", "mistral:latest", "llama3.2:latest"]
 CRITS = 5
 BULLET2SENTENCE = 2.83
+writingPrompt = ""
+critiquePrompt = ""
+rewritePrompt = ""
 
 def load_config(config_path):
     with open(config_path, 'r') as file:
@@ -46,6 +49,8 @@ def main():
     config_path = os.path.join(os.path.dirname(__file__), 'config.json')
     #TODDO ordered dict https://stackoverflow.com/questions/6921699/can-i-get-json-to-load-into-an-ordereddict
     config = load_config(config_path)
+    #change to or
+    
     print("Loaded config:", config)
 
     check_ollama_container()
@@ -55,12 +60,21 @@ def main():
         # foreach model,
         for model in MYMODELS:
             print(f"Processing with model: {model}")
-            # Add your processing logic here
+            
+            # make Ollama request with writing prompt model
+            
+            # copy myModels copyMyModel
+            
+            # remove model from copyMyModel
+            
+            #for each m in copyMyModel
+            
+            
             
             
             
     else:
-        print("Exiting program as the required models are not found.")
+        print("Exiting program as the required models are not found.") #TODO add a dl model if not there.
         exit(1)
 
 if __name__ == "__main__":
