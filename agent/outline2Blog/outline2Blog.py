@@ -39,22 +39,19 @@ def check_models():
         print("Failed to get tags:", response.status_code)
         return False
 
-def load_outline_csv(file_path, start_line=44):
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-    formatted_lines = [f'"{line.strip()}"' for line in lines[start_line-1:]]
-    if len(formatted_lines) > 1:
-        return ', '.join(formatted_lines[:-1]) + ' and ' + formatted_lines[-1]
-    return formatted_lines[0] if formatted_lines else ''
+
 
 def main():
 
-    outline_path = os.path.join(os.path.dirname(__file__), 'outline.csv')
-    outline_list = load_outline_csv(outline_path)
-    print("Loaded outline from CSV:", outline_list)
-    #convert the outline_list to a 
-    
-    
+    outline_path = os.path.join(os.path.dirname(__file__), 'outline.txt')
+    with open(outline_path, 'r') as file:
+        lines = file.readlines()
+    formatted_lines = [f'"{line.strip()}"' for line in lines]
+    if len(formatted_lines) > 1:
+        outline = ', '.join(formatted_lines[:-1]) + ' and ' + formatted_lines[-1]
+    else:
+        outline = formatted_lines[0] if formatted_lines else ''
+    print("Formatted outline:", outline)
 
     check_ollama_container()
     begin = check_models()
@@ -64,17 +61,13 @@ def main():
         for model in MYMODELS:
             print(f"Processing with model: {model}")
             
-            # make Ollama request with writing prompt model
+            # make Ollama chat API request with writing prompt, model, and outline
             
-            # copy myModels copyMyModel
+            # copy myModels to copyMyModel
             
             # remove model from copyMyModel
             
             # for each m in copyMyModel
-            
-            
-            
-            
             
     else:
         print("Exiting program as the required models are not found.") #TODO add a dl model if not there.

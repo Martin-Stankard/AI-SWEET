@@ -26,8 +26,11 @@ Ok so...foreach model,
 - original writer takes 3x critiques and ? if over magic number CRITS=5, random sample 5 unless they ordered???idk bout that.
 - implementation goal, I don't care who each writer is, each is of a comparable ability and it is like preference in fractal noise images. Four candidate writers, each with a 3 editor review bored. 
 
-Using Ollama-bottleneck so flat program flow/ no async multithreading and here there is 4 great opportunities, each with a 3x here. Fun TODO might be some WWW api key use.
+Using Ollama-bottleneck so flat program flow/ no async multithreading and here there is 4 great opportunities, each with a 3x here. Fun TODO might be some WWW api key use multithreading opportunities down the road.
 
 boom boom boom, out pops four candidates
 
 TODO: I pick 1 of 4; get another 4x critique script. pick critiques and go lol...4x again. Subtle changes from critiques being the goal. 
+
+TODO: abstracting out THIS outline AND blog component to....llm feeder a 2 b is a real move.
+feature > tests > comments > code ..... just 3 writing prompts...can even be a call to write writing prompt given a and b; critique an rewrite can solidify as generic prompts ... probably copy this to https://github.com/Martin-Stankard/docker-compose-gold/tree/main/agent
