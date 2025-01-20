@@ -77,9 +77,9 @@ def main():
     for model in MYMODELS:
         print(f"Processing with model: {model}")
         
-        writingPrompt = "You are a writer. Given the following list of bullet points in outline form:{{$outline}} ; write a blog. The style should be brief, to the point and humorous. The final blog should be about sentences long"
+        writingPrompt = f"You are a writer. Given the following list of bullet points in outline form:{outline} ; write a blog. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with."
         # make Ollama chat API request with writing prompt, model, and outline
-        ollamaChatCall(m, writingPrompt) # contains inline string literals BULLET2SENTENCE and outline
+        ollamaChatCall(model, writingPrompt) # contains inline string literals BULLET2SENTENCE and outline
         
         # copy myModels to copyMyModel
         
@@ -87,6 +87,7 @@ def main():
         
         # for each m in copyMyModel
             
+        
     
 
 if __name__ == "__main__":
