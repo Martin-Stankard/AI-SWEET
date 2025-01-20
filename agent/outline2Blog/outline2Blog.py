@@ -61,6 +61,8 @@ def get_outline():
 def ollamaChatCall(model, prompt): 
     #TODO...might be an up efficiency by doing this as a "chat completion" instead of this "completion". 
     # Can swap in models but this rigidity is valuable/don't want to jam up flow. 
+    print (prompt)
+    # Flow jammed up anyways
     
     response = requests.post(
         'http://localhost:11434/api/generate',
