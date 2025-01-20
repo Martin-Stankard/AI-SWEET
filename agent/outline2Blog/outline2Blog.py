@@ -95,7 +95,7 @@ def main():
     print("Starting the process with all required models.")
     # foreach model,
     for model in MYMODELS:
-        print(f"Processing with model: {model}")
+        print(f"Processing writing with model: {model}")
         
         writingPrompt = f"You are a writer. Given the following list of bullet points in outline form:{outline} ; write a blog. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with."
         # make Ollama chat API request with writing prompt, model, and outline
@@ -117,6 +117,7 @@ def main():
         # for each m in copyMyModel
         critiques = []
         for m in copyMyModel:
+            print(f"Processing critique with model: {m}, on blog written by {model}")
             # create critiquePrompt with initialBlog 
             critiquePrompt = f"Please critique the following blog: {initialBlog}. The style should be brief, to the point and humorous. Return critiques in the form 'where it says 'x', please change it to 'y' in a list, and just the list."
             # ollamaChatCall(CritiqueModel-0,1,2, critiquePrompt)
