@@ -7,8 +7,6 @@ import ollama
 
 #magic number globals
 MYMODELS = ["llama3.1:8b", "qwen:7b", "mistral:latest", "llama3.2:latest"]
-CRITS = 5
-SENTENCEPERBULLET = 2.83
 OUTLINECOUNT = 1
 critiquePrompt = ""
 rewritePrompt = ""
@@ -102,7 +100,7 @@ def main():
     for model in MYMODELS:
         print(f"Processing writing with model: {model}")
         
-        writingPrompt = f"You are a writer. Given the following list of bullet points in outline form:{outline} ; write a blog. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with."
+        writingPrompt = f"You are a writer. Given the following list of bullet points in outline form:{outline} ; expand them into a blog."
         # make Ollama chat API request with writing prompt, model, and outline
         response = ollamaChatCall(model, writingPrompt) # contains inline string literals BULLET2SENTENCE and outline
         
@@ -125,7 +123,7 @@ def main():
         for m in copyMyModel:
             print(f"Processing critique with model: {m}, on blog written by {model}")
             # create critiquePrompt with initialBlog 
-            critiquePrompt = f"Please critique the following blog: {initialBlog}. The style should be brief, to the point and humorous. Return critiques in the form 'where it says 'x', change it to 'y' in a list, and return just the list."
+            critiquePrompt = f"You are an online blog editor. Please critique the following blog: {initialBlog}."
             # ollamaChatCall(CritiqueModel-0,1,2, critiquePrompt)
             critiqueResponse = ollamaChatCall(m, critiquePrompt)
             # if there is a response.response, save it in a list called critiques.
@@ -139,13 +137,13 @@ def main():
         # create rewritePrompt using initialBlog, and critiques
         
         print(f"Rewrite on blog written by {model}")
-        rewritePrompt = f"Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with. JUST THE BLOG "
+        rewritePrompt = f"You are a writer. Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}."
         finalBlogResponse = ollamaChatCall(model, rewritePrompt)
         if finalBlogResponse and 'response' in finalBlogResponse:
             ollamaCallCount += 1            
             # save or append to ./blog.txt
             with open('blog.txt', 'a') as blog_file:
-                blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n")
+                blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n*****\n\n\n\n\n")
         # no else here...wait this long, take whatever...
 
 
