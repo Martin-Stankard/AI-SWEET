@@ -60,7 +60,7 @@ def ollamaChatCall(model, prompt):
     #TODO...might be an up efficiency by doing this as a "chat completion" instead of this "completion". 
     # context window/chat history size mighth come up. 
     # Can swap in models but this rigidity is valuable/don't want to jam up flow. 
-    print (prompt)
+    print (f"model: {model}, prompt:{prompt}")
     # Flow jammed up anyways
     
     response = requests.post(
@@ -142,11 +142,11 @@ def main():
         if finalBlogResponse and 'response' in finalBlogResponse:
             ollamaCallCount += 1            
             # save or append to ./blog.txt
-            with open('blog.txt', 'a') as blog_file:
+            with open('blog.md', 'a', encoding='utf-8') as blog_file:
                 blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n*****\n\n\n\n\n")
         # no else here...wait this long, take whatever...
 
-
     print(ollamaCallCount)
+
 if __name__ == "__main__":
     main()
