@@ -142,11 +142,11 @@ def main():
         if finalBlogResponse and 'response' in finalBlogResponse:
             ollamaCallCount += 1            
             # save or append to ./blog.txt
-            with open('blog.md', 'a', encoding='utf-8') as blog_file:
+            with open('blog.', 'a', encoding='utf-8') as blog_file:
                 blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n*****\n\n\n\n\n")
         # no else here...wait this long, take whatever...
 
-    print(ollamaCallCount)
+    print("Ollama Call Count"+ollamaCallCount)
 
 if __name__ == "__main__":
     main()
