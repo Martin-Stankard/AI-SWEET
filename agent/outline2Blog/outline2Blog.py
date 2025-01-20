@@ -12,13 +12,14 @@ SENTENCEPERBULLET = 2.83
 OUTLINECOUNT = 1
 critiquePrompt = ""
 rewritePrompt = ""
-ollamaCallCount = 0
+
+#TODO time ollama calls? / got thos token numbers...not here, today
 
 def check_ollama_container():
     client = docker.from_env()
     try:
         container = client.containers.get('ollama')
-        if (container.status == 'running'): #nope ollamaCallCount
+        if (container.status == 'running'): 
             print("Ollama container is running.")
             return True
         else:
@@ -31,8 +32,7 @@ def check_ollama_container():
 def check_models():
     response = requests.get('http://localhost:11434/api/tags')
     if (response.status_code == 200):
-        global ollamaCallCount
-        ollamaCallCount += 1
+        
         tags = response.json()
         models_present = [model.get('model') for model in tags.get('models', [])]
         if all(required_model in models_present for required_model in MYMODELS):
@@ -60,6 +60,7 @@ def get_outline():
 
 def ollamaChatCall(model, prompt): 
     #TODO...might be an up efficiency by doing this as a "chat completion" instead of this "completion". 
+    # context window/chat history size mighth come up. 
     # Can swap in models but this rigidity is valuable/don't want to jam up flow. 
     print (prompt)
     # Flow jammed up anyways
@@ -73,13 +74,15 @@ def ollamaChatCall(model, prompt):
         }
     )
     if (response.status_code == 200):
-        ollamaCallCount += 1
+   
         return response.json()
     else:
         print(f"Failed to generate response from model {model}: {response.status_code}")
         return None
 
 def main():
+    ollamaCallCount = 0
+    
     outline = get_outline()
     
     print("Formatted outline:", outline)
@@ -92,6 +95,8 @@ def main():
         print("Exiting program as the required models are not found.") #TODO add a dl model if not there.
         exit(1)
     
+    ollamaCallCount += 1
+    
     print("Starting the process with all required models.")
     # foreach model,
     for model in MYMODELS:
@@ -103,9 +108,10 @@ def main():
         
         # if there is a key "response" inside response, print it and save it as initialBlog; else exit.
         if response and 'response' in response:
+            ollamaCallCount += 1
             initialBlog = response['response']
         else:
-            print("Failed to get a valid response from the model.")
+            print(f"Failed to get a valid response from the model{model}.")
             exit(1)
         
         # copy myModels to copyMyModel
@@ -125,6 +131,9 @@ def main():
             # if there is a response.response, save it in a list called critiques.
             if critiqueResponse and 'response' in critiqueResponse:
                 critiques.append(critiqueResponse['response'])
+            else:
+                print(f"Failed to get a valid response from the model crit model {m}.")
+                exit(1)
         
         # TODO analyze crits, if less than 
         # create rewritePrompt using initialBlog, and critiques
@@ -132,10 +141,13 @@ def main():
         print(f"Rewrite on blog written by {model}")
         rewritePrompt = f"Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with. JUST THE BLOG "
         finalBlogResponse = ollamaChatCall(model, rewritePrompt)
-        if finalBlogResponse and 'response' in finalBlogResponse:            
+        if finalBlogResponse and 'response' in finalBlogResponse:
+            ollamaCallCount += 1            
             # save or append to ./blog.txt
             with open('blog.txt', 'a') as blog_file:
                 blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n")
+        # no else here...wait this long, take whatever...
+
 
     print(ollamaCallCount)
 if __name__ == "__main__":
