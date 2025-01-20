@@ -119,7 +119,7 @@ def main():
         for m in copyMyModel:
             print(f"Processing critique with model: {m}, on blog written by {model}")
             # create critiquePrompt with initialBlog 
-            critiquePrompt = f"Please critique the following blog: {initialBlog}. The style should be brief, to the point and humorous. Return critiques in the form 'where it says 'x', please change it to 'y' in a list, and just the list."
+            critiquePrompt = f"Please critique the following blog: {initialBlog}. The style should be brief, to the point and humorous. Return critiques in the form 'where it says 'x', change it to 'y' in a list, and return just the list."
             # ollamaChatCall(CritiqueModel-0,1,2, critiquePrompt)
             critiqueResponse = ollamaChatCall(m, critiquePrompt)
             # if there is a response.response, save it in a list called critiques.
@@ -128,8 +128,10 @@ def main():
         
         # TODO analyze crits, if less than 
         # create rewritePrompt using initialBlog, and critiques
-        rewritePrompt = f"Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with. "
-        finalBlogResponse = ollamaChatCall(model, critiquePrompt)
+        
+        print(f"Rewrite on blog written by {model}")
+        rewritePrompt = f"Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with. JUST THE BLOG "
+        finalBlogResponse = ollamaChatCall(model, rewritePrompt)
         if finalBlogResponse and 'response' in finalBlogResponse:            
             # save or append to ./blog.txt
             with open('blog.txt', 'a') as blog_file:
