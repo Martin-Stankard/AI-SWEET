@@ -12,12 +12,13 @@ SENTENCEPERBULLET = 2.83
 OUTLINECOUNT = 1
 critiquePrompt = ""
 rewritePrompt = ""
+ollamaCallCount = 0
 
 def check_ollama_container():
     client = docker.from_env()
     try:
         container = client.containers.get('ollama')
-        if (container.status == 'running'):
+        if (container.status == 'running'): #nope ollamaCallCount
             print("Ollama container is running.")
             return True
         else:
@@ -30,6 +31,8 @@ def check_ollama_container():
 def check_models():
     response = requests.get('http://localhost:11434/api/tags')
     if (response.status_code == 200):
+        global ollamaCallCount
+        ollamaCallCount += 1
         tags = response.json()
         models_present = [model.get('model') for model in tags.get('models', [])]
         if all(required_model in models_present for required_model in MYMODELS):
@@ -68,6 +71,7 @@ def ollamaChatCall(model, prompt):
         }
     )
     if (response.status_code == 200):
+        ollamaCallCount += 1
         return response.json()
     else:
         print(f"Failed to generate response from model {model}: {response.status_code}")
@@ -122,13 +126,12 @@ def main():
         # TODO analyze crits, if less than 
         # create rewritePrompt using initialBlog, and critiques
         rewritePrompt = f"Rewrite the following blog considering these critiques: {critiques}. Blog: {initialBlog}. The style should be brief, to the point and humorous. The final blog should be about {SENTENCEPERBULLET*OUTLINECOUNT} sentences long. Return JUST the blog and nothing else, including small talk from you or asking if there is anything else you can help me with. "
-        
         finalBlogResponse = ollamaChatCall(model, critiquePrompt)
-        if finalBlogResponse and 'response' in finalBlogResponse:
-             
+        if finalBlogResponse and 'response' in finalBlogResponse:            
             # save or append to ./blog.txt
             with open('blog.txt', 'a') as blog_file:
                 blog_file.write(finalBlogResponse['response'] + "\n\n\n\n\n")
 
+    print(ollamaCallCount)
 if __name__ == "__main__":
     main()
